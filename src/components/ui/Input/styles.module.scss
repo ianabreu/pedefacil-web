@@ -5,4 +5,8 @@
     background-color: var(--gray-050);
     border: 1px solid var(--gray-400);
     color: var(--gray-400);
+    padding: 1rem;
+}
+.input::placeholder {
+    color: var(--gray-400);
 }
