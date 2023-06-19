@@ -7,6 +7,7 @@
 }
 .logo {
   width: 85%;
+  height: auto;
 }
 .login {
   width: 600px;
@@ -14,10 +15,15 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 2rem 1rem;
+  h1 {
+    padding: 1rem 0;
+    color: var(--gray-050);
+    font-size: 1.562rem;
+  }
   form {
     margin-top: 0.5rem;
     width: 90%;
-    padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
   }
@@ -28,12 +34,16 @@
 }
 .text {
   color: var(--gray-050);
+  margin-top: 1rem;
   cursor: pointer;
   &:hover {
     color: var(--white);
   }
 }
 @media (max-width: 620px) {
+  .containerCenter {
+    min-height: 93vh;
+  }
   .login {
     width: 95%;
   }
