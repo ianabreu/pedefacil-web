@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import logoSVG from "../../../public/logo.svg";
+import logoSVG from "../../../public/logo.png";
 import styles from "../../styles/home.module.scss";
 import { Input } from "../../components/ui/Input";
 import { Button } from "../../components/ui/Button";
@@ -20,7 +20,12 @@ export default function SignUp() {
 
       <div className={styles.containerCenter}>
         <div className={styles.login}>
-          <Image className={styles.logo} src={logoSVG} alt="Logo Pede Fácil" />
+          <Image
+            className={styles.logo}
+            src={logoSVG}
+            alt="Logo Pede Fácil"
+            priority
+          />
           <h1>Criando sua conta</h1>
           <form>
             <Input placeholder="Digite seu nome" type="text" />
