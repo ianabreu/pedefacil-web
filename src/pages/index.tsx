@@ -2,6 +2,7 @@ import { useState, useContext, FormEvent } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 import logoSVG from "../../public/logo.png";
 
@@ -22,7 +23,7 @@ export default function Home() {
   async function handleLogin(event: FormEvent) {
     event.preventDefault();
     if (email === "" || password === "")
-      return alert("Preencha todos os dados!");
+      return toast.error("Preencha todos os dados!");
 
     setLoading(true);
 
