@@ -7,7 +7,7 @@ import { signOut } from "../contexts/AuthContext";
 export function setupAPIClient(context = undefined) {
   let cookies = parseCookies(context);
   const api = axios.create({
-    baseURL: "htttp://localhost:3333",
+    baseURL: "http://localhost:3333/",
     headers: {
       Authorization: `Bearer ${cookies["@pedefacil.token"]}`,
     },

@@ -21,11 +21,18 @@ export default function Home() {
 
   async function handleLogin(event: FormEvent) {
     event.preventDefault();
+    if (email === "" || password === "")
+      return alert("Preencha todos os dados!");
+
+    setLoading(true);
+
     let data = {
       email,
       password,
     };
     await signIn(data);
+
+    setLoading(false);
   }
 
   return (

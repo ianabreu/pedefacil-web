@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useState } from "react";
-import { destroyCookie } from "nookies";
+import { destroyCookie, setCookie, parseCookies } from "nookies";
 import Router from "next/router";
+import { api } from "../services/apiClient";
 
 type AuthContextData = {
   user: UserProps;
@@ -34,9 +35,29 @@ export function signOut() {
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<UserProps>();
   const isAutenticated = !!user;
+
   async function signIn({ email, password }: SignInProps) {
-    console.log("Email", email);
-    console.log("password", password);
+    try {
+      const response = await api.post("/session", { email, password });
+      // console.log(response.data);
+      const { id, name, token } = response.data;
+      setCookie(undefined, "@pedefacil.token", token, {
+        maxAge: 60 * 60 * 24 * 30, //expirar em um mes
+        path: "/", // quais caminhos tem acesso ao cookie
+      });
+
+      setUser({
+        id,
+        name,
+        email,
+      });
+      // passar para proximas requisicões o nosso token
+      api.defaults.headers["Authorization"] = `Bearer ${token}`;
+      //redirecionar use para dashboard
+      Router.push("/dashboard");
+    } catch (error) {
+      console.log("Erro ao acessar", error);
+    }
   }
 
   return (
