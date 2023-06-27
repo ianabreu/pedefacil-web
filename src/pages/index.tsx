@@ -12,6 +12,7 @@ import { Input } from "../components/ui/Input";
 import { Button } from "../components/ui/Button";
 
 import { AuthContext } from "../contexts/AuthContext";
+import { canSSRGuest } from "../utils/canSSRGuest";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -83,3 +84,9 @@ export default function Home() {
     </>
   );
 }
+
+export const getServerSideProps = canSSRGuest(async (context) => {
+  return {
+    props: {},
+  };
+});
