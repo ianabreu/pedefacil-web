@@ -1,0 +1,23 @@
+.menuButton {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0;
+    padding: 0.25rem 1rem;
+    background: transparent;
+    border: 0;
+    border-left: 2px solid transparent;
+    span {
+        color: var(--white);
+        font-weight: 700;
+        margin: 0 0.5rem;
+    }
+    &:hover {
+        border-left: 2px solid var(--red-500);
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+}
+.active {
+    border-left: 2px solid var(--red-500);
+}

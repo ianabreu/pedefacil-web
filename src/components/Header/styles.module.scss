@@ -1,0 +1,40 @@
+.headerContainer {
+    grid-area: header;
+    height: 4rem;
+    background-color: var(--gray-500);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+
+    -webkit-box-shadow: 0px 12px 8px -8px rgba(15, 16, 20, 0.5);
+    -moz-box-shadow: 0px 12px 8px -8px rgba(15, 16, 20, 0.5);
+    box-shadow: 0px 12px 8px -8px rgba(15, 16, 20, 0.5);
+}
+.headerContent {
+    height: inherit;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.headerContent > div {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.menuButton {
+    background: transparent;
+    border: 0;
+    margin-right: 1.5rem;
+    svg {
+        color: #fff;
+    }
+}
+.logo {
+    cursor: pointer;
+    height: 47px;
+    width: 150px;
+}

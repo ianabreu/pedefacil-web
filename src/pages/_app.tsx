@@ -8,7 +8,7 @@ import { ToastContainer } from "react-toastify";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
       <ToastContainer
         position="top-right"
         autoClose={2000}
